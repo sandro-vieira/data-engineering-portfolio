@@ -1,6 +1,6 @@
 # Databricks notebook source
 # Credenciais
-storageAccountName = dbutils.secrets.get(scope="azure-key-vault-secrets", key="datalake-storage-account-name")
+storageAccountName = "dlavanadeanalyticslab"
 sasToken = dbutils.secrets.get(scope="azure-key-vault-secrets", key="datalake-container-files-sas-token")
 container = "files"
 
