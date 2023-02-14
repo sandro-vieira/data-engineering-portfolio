@@ -94,3 +94,8 @@ final_df = races_results_df.select(
 # COMMAND ----------
 
 final_df.write.mode("overwrite").parquet(f"{gold}/races_results")
+
+# COMMAND ----------
+
+spark.sql("CREATE DATABASE IF NOT EXISTS f1_gold");
+final_df.write.mode("overwrite").format("parquet").saveAsTable("f1_gold.races_results")
