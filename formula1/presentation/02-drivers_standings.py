@@ -44,3 +44,8 @@ final_df = drivers_standings_df.withColumn("rank", rank().over(drivers_rank_spec
 # COMMAND ----------
 
 final_df.write.mode("overwrite").parquet(f"{gold}/drivers_standings")
+
+# COMMAND ----------
+
+spark.sql("CREATE DATABASE IF NOT EXISTS f1_gold");
+final_df.write.mode("overwrite").format("parquet").saveAsTable("f1_gold.drivers_standings")
